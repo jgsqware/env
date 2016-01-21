@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/admin/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell-docker"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew docker docker-compose)
+plugins=(git brew docker docker-compose go)
 
 # User configuration
 
@@ -82,13 +82,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dpi='docker rmi $(docker images -f "dangling=true" -q)'
-alias dmssh='docker-machine ssh'
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
-export PATH=$PATH:$EC2_HOME/bin 
-export AWS_ACCESS_KEY=AKIAIWZEACBXJKNFZQTQ
-export AWS_SECRET_KEY=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
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
-export EC2_URL=https://ec2.eu-west-1.amazonaws.com
-export GOPATH=/Users/admin/workspace/go
+export GOPATH=~/workspace/go
