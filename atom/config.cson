@@ -1,0 +1,21 @@
+"*":
+  "exception-reporting":
+    userId: "34da83c6-d19e-6a24-ad23-143d8fd8e461"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    invisibles: {}
+  "git-history": {}
+  "one-dark-ui": {}
+  "linter-docker": {}
+  "atom-terminal":
+    app: "/Applications/iTerm.app"
+    surpressDirectoryArgument: false
+    MacWinRunDirectly: true
+  "open-terminal-here":
+    command: "open -a iTerm \"$(PWD)\""
