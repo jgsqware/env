@@ -13,3 +13,4 @@ brew tap caskroom/cask
 - Docker Toolbox: `brew cask install dockertoolbox`
 - Slack: `brew cask install slack`
 - Iterm2: `brew cask install iterm2`
+- Hack font: `brew cask install caskroom/fonts/font-hack`

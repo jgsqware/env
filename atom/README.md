@@ -1,4 +1,4 @@
-# ATOM
+# Atom
 
 ## Backup
 ```
@@ -10,8 +10,6 @@ apm list --installed --bare > packages.list
 ```
 
 ## Restore
-
-## Backup
 ```
 # Copy settings file
 cp *.{cson,less,coffee} ~/.atom/
