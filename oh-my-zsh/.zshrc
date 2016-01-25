@@ -83,3 +83,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPATH=~/workspace/go
+export HYPERCLAIR=$GOPATH/src/github.com/jgsqware/hyperclair
