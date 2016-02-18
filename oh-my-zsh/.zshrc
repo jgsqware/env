@@ -84,3 +84,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPATH=~/workspace/go
 export HYPERCLAIR=$GOPATH/src/github.com/jgsqware/hyperclair
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-interative shells
+	eval "$(~/workspace/github/env/vim/base16-shell/profile_helper.sh)"
+fi
+
+alias zshconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vimrc"
+alias vim="/usr/local/bin/vim"

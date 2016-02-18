@@ -8,6 +8,8 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 # Restore
 ```
-cp .zshrc ~/.zshrc
+brew install vim
+ln -s $(pwd)/.zshrc ~/.zshrc
 cp robbyrussell-docker.zsh-theme ~/.oh-my-zsh/themes/
+base16_default_dark
 ```
