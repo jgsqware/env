@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell-docker"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew docker docker-compose go)
+plugins=(git brew docker docker-compose go ruby)
 
 # User configuration
 
@@ -85,13 +85,10 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=~/workspace/go
 export HYPERCLAIR=$GOPATH/src/github.com/jgsqware/hyperclair
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-interative shells
-	eval "$(~/workspace/github/env/vim/base16-shell/profile_helper.sh)"
+	eval "$(~/workspace/github/env/oh-my-zsh/base16-shell/profile_helper.sh)"
 fi
 
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
-alias vim="/usr/local/bin/vim"
