@@ -17,6 +17,7 @@ syntax on
 
 set laststatus=2
 set number
+set backspace=indent,eol,start
 
 if filereadable(expand("~/.vimrc_background"))
 	let base16colorspace=256

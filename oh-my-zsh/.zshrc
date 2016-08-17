@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh installation.
+# path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -49,7 +49,8 @@ ZSH_THEME="robbyrussell-docker"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew docker docker-compose go ruby)
+plugins=(git brew docker docker-compose go vagrant ansible ruby)
+
 
 # User configuration
 
@@ -90,5 +91,19 @@ if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-intera
 	eval "$(~/workspace/github/env/oh-my-zsh/base16-shell/profile_helper.sh)"
 fi
 
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig="vim ~/.vimrc"
+alias zshconfig="${EDITOR} ~/.zshrc"
+alias vimconfig="${EDITOR} ~/.vimrc"
+export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1"
+
+export EDITOR=emacs
+
+
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+
+if [[ "$(uname)" == "Darwin" ]]; then
+    # OSX only
+   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+elif [[ "$(uname)" == "Linux" ]]; then
+    # Linux only
+fi
