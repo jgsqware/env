@@ -1,13 +1,10 @@
 
 
 function _prompt_docker_machine() {
-  [ -z "$DOCKER_MACHINE_NAME" ] && DOCKER_MACHINE_NAME="abc"
-
-  if env | grep -q ^DOCKER_MACHINE_NAME=
-    then
-      echo "🐳 〔$DOCKER_MACHINE_NAME〕"
-      else
-      echo ''
+  if [[ ! -z $DOCKER_MACHINE_NAME ]]; then
+    echo "🐳 〔$DOCKER_MACHINE_NAME〕"
+  else
+    echo ''
   fi
 }
 
