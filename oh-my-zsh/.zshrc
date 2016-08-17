@@ -18,15 +18,15 @@ export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1"
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export GOPATH=~/workspace/go
 
-<<<<<<< 6b98c1ed67a14aa7c187b3d3a705c958a33899dd
+
 if [[ -d "$HOME/.rvm" ]]; then
     export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
     source ~/.rvm/scripts/rvm
 fi
-=======
-alias zshconfig="${EDITOR} ~/.zshrc"
-alias vimconfig="${EDITOR} ~/.vimrc"
->>>>>>> update .zshrc and fix robbyrussell-docker.zsh-theme
+
+alias zshconfig="emacs ~/.zshrc"
+
+
 
 if [[ "$(uname)" == "Darwin" ]]; then
     # OSX only
