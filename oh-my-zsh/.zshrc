@@ -31,6 +31,8 @@ alias zshconfig="emacs ~/.zshrc"
 if [[ "$(uname)" == "Darwin" ]]; then
     # OSX only
    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+   alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
+
 elif [[ "$(uname)" == "Linux" ]]; then
     # Linux only
 fi

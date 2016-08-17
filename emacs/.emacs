@@ -34,7 +34,7 @@
 
 (setq make-backup-files nil)
 (setq vc-follow-symlinks t)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
