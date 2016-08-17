@@ -100,6 +100,10 @@ export EDITOR=emacs
 
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
+if [[ -d "$HOME/.rvm" ]]; then
+    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+    source ~/.rvm/scripts/rvm
+fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
     # OSX only
