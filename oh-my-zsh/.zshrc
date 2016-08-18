@@ -19,7 +19,6 @@ export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
 alias zshconfig="emacs ~/.zshrc"
-alias emacsconfig="emacs ~/.emacs"
 alias workspace="cd ${WORKSPACE}"
 alias env_dir="cd ${ENV}"
 
