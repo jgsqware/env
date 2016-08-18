@@ -21,5 +21,15 @@
 ;;ag section
 (package-install 'ag)
 
+;;yasnippet section
+(package-install 'yasnippet)
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'ruby-mode-hook #'yas-minor-mode)
+
+;;projectile
+(package-install 'projectile)
+(projectile-global-mode)
+
 (provide 'code)
 ;;; code.el ends here
