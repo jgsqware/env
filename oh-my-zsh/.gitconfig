@@ -9,3 +9,5 @@
 [core]
         editor = /usr/bin/emacs
         excludesfile = /Users/jgsqware/.gitignore_global
+[status]
+	submodulesummary = true
