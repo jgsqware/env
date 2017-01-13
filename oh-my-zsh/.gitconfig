@@ -1,6 +1,6 @@
 [user]
-	email = garciagonzalez.julien@gmail.com
-	name = jgsqware
+	email = julien.garciagonzalez@bnpparibasfortis.com
+	name = Julien Garcia Gonzalez
 [push]
 	default = simple
 [alias]
@@ -11,3 +11,10 @@
         excludesfile = ~/.gitignore_global
 [status]
 	submodulesummary = true
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
