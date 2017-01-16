@@ -65,3 +65,9 @@ ln -s ${HOME}/workspace/github/jgsqware/env/git/.gitignore_global ~/.gitignore_g
 ln -s ${HOME}/workspace/github/jgsqware/env/emacs/.emacs ${HOME}/.emacs
 ln -s ${HOME}/workspace/github/jgsqware/env/emacs/.emacs.d ${HOME}/.emacs.d
 ```
+
+1. Intellij Idea
+
+```
+ln -s ${HOME}/workspace/github/jgsqware/env/intellij_idea/idea.vmoptions ~/Library/Preferences/IntelliJIdea2016.3/idea.vmoptions
+```

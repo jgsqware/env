@@ -43,3 +43,7 @@ elif [[ "$(uname)" == "Linux" ]]; then
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/juliengarciagonzalez/.sdkman"
+[[ -s "/Users/juliengarciagonzalez/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/juliengarciagonzalez/.sdkman/bin/sdkman-init.sh"
