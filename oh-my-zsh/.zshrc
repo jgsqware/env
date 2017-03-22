@@ -17,6 +17,10 @@ export LESS=' -R '
 alias zshconfig="emacs ~/.zshrc"
 alias workspace="cd ${WORKSPACE}"
 alias env_dir="cd ${ENV}"
+alias docker-rmid="docker images --quiet --filter=dangling=true | xargs docker rmi -"
+
+alias notes="code $WORKSPACE/lampiris/notes"
+alias playground="code $GOPATH/src/github.com/jgsqware/playground"
 
 # User configuration 
 if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-interative shells
