@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell-docker"
-
+#ZSH_THEME="robbyrussell-docker"
+ZSH_THEME="spaceship"
 plugins=(git docker docker-compose go vagrant ansible ruby kubectl)
 source $ZSH/oh-my-zsh.sh
 

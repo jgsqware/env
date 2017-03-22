@@ -5,7 +5,7 @@ git clone git@github.com:jgsqware/env.git ~/workspace/github/jgsqware/env
 
 ```
 
-1. Homebrew
+1. OSX
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -25,7 +25,10 @@ brew cask install iterm2
 brew cask install dashlane
 brew cask install visual-studio-code
 brew cask install spotify
+brew cask install statusfy
 
+
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
 
 
@@ -53,7 +56,7 @@ ln -s ${HOME}/workspace/github/jgsqware/env/git/.gitignore_global ~/.gitignore_g
     - Restore
     
     ```
-    ln -s  ${HOME}/workspace/github/jgsqware/env/oh-my-zsh/robbyrussell-docker.zsh-theme ${HOME}/.oh-my-zsh/themes/
+    ln -s  ${HOME}/workspace/github/jgsqware/env/oh-my-zsh/spaceship.zsh-theme ${HOME}/.oh-my-zsh/themes/
     rm  ${HOME}/.zshrc
     ln -s ${HOME}/workspace/github/jgsqware/env/oh-my-zsh/.zshrc ~/.zshrc
     source ~/.zshrc
