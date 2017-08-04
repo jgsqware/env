@@ -1,5 +1,5 @@
 [user]
-	email = julien.garciagonzalez@bnpparibasfortis.com
+	email = julien.garciagonzalez@lampiris.be
 	name = Julien Garcia Gonzalez
 [push]
 	default = simple
@@ -18,3 +18,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[gitreview]
+	remote = origin
+	branch = develop
+[url "git@github.com:"]
+	insteadOf = https://github.com/
