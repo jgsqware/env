@@ -1,8 +1,7 @@
 export ZSH=~/.oh-my-zsh
-#ZSH_THEME="robbyrussell-docker"
 ZSH_THEME="spaceship"
 SPACESHIP_DOCKER_SHOW=false
-plugins=(git docker docker-compose go vagrant ansible ruby kubectl)
+plugins=(git docker docker-compose go vagrant ansible kubectl)
 source $ZSH/oh-my-zsh.sh
 TERM=xterm-256color
 
@@ -24,12 +23,6 @@ if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-intera
     base16_chalk
 fi
 
-if [[ -d "$HOME/.rvm" ]]; then
-    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-    source ~/.rvm/scripts/rvm
-fi
-
-
 if [[ "$(uname)" == "Darwin" ]]; then
     # OSX only
    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -43,8 +36,10 @@ elif [[ "$(uname)" == "Linux" ]]; then
 
 fi
 
-if [[ ! -z "$HOME/.bash_profile" ]]; then
+if [[ -f "$HOME/.bash_profile" ]]; then
     source ~/.bash_profile
 fi
 
 export CDPATH=".:$WORKSPACE:$GOPATH/src"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

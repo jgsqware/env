@@ -31,6 +31,13 @@ brew cask install statusfy
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
 
+1. Kubuntu
+
+```
+sudo apt-get install -y \
+    jq
+    source-highlight
+
 
 1. ITerm2
 
@@ -57,6 +64,7 @@ ln -s ${HOME}/workspace/github/jgsqware/env/git/.gitignore_global ~/.gitignore_g
     
     ```
     ln -s  ${HOME}/workspace/github/jgsqware/env/oh-my-zsh/spaceship.zsh-theme ${HOME}/.oh-my-zsh/themes/
+    ln -s  ${HOME}/workspace/github/jgsqware/env/oh-my-zsh/functions/ ${HOME}/.oh-my-zsh/
     rm  ${HOME}/.zshrc
     ln -s ${HOME}/workspace/github/jgsqware/env/oh-my-zsh/.zshrc ~/.zshrc
     source ~/.zshrc
