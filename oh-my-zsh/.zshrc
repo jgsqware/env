@@ -17,12 +17,6 @@ export LESS=' -R '
 
 source $ZSH/functions/aliases.sh
 
-# User configuration 
-if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-interative shells
-	eval "$(${ENV}/oh-my-zsh/base16-shell/profile_helper.sh)"
-    base16_chalk
-fi
-
 if [[ "$(uname)" == "Darwin" ]]; then
     # OSX only
    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
