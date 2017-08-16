@@ -1,2 +1,50 @@
-- debug:
-    msg: "test"
+- name: "Install tools"
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: true
+  with_items:
+    - "jq"
+    - "source-highlight"
+    - "curl"
+    - "fonts-firacode"
+  become: true
+
+- name: "Download Konsole Color profile"
+  get_url:
+    url: "https://raw.githubusercontent.com/cskeeters/base16-konsole/master/colorscheme/base16-chalk.colorscheme"
+    dest: /usr/share/konsole/base16-chalk.colorscheme
+    mode: 0755
+
+- name: "Change Konsole theme"
+  command: "konsoleprofile colors=base16-chalk"
+
+- name: "Install VSCode"
+  apt:
+    deb: https://go.microsoft.com/fwlink/?LinkID=760868
+  become: true
+
+- name: Add apt keys
+  apt_key: 
+    keyserver: keyserver.ubuntu.com 
+    id: "{{ item }}"
+    state: present
+  with_items:
+    - BBEBDCB318AD50EC6865090613B00F1FD2C19886
+    - 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+
+- name: Add repository
+  apt_repository: 
+    repo: 'deb http://repository.spotify.com stable non-free'
+
+- name: Install spotify
+  apt: 
+    name: spotify-client 
+    update_cache: yes 
+    state: latest
+    become: true
+  
+- name: "Install Opera"
+  apt:
+    deb: http://download1.operacdn.com/pub/opera/desktop/45.0.2552.898/linux/opera-stable_45.0.2552.898_i386.deb
+  become: true
