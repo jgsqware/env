@@ -8,6 +8,7 @@
     - "source-highlight"
     - "curl"
     - "fonts-firacode"
+    - "zsh"
   become: true
 
 - name: "Download Konsole Color profile"
@@ -59,10 +60,11 @@
     state: present
   become: true
 
-
-
 - name: Install opera
   apt: 
     name: opera-stable
     state: latest
   become: true
+
+- name: "Install Oh-My-Zsh"
+  shell: "sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'"
