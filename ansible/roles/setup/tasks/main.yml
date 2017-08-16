@@ -47,7 +47,13 @@
     state: latest
   become: true
   
-- name: "Install Opera"
-  apt:
-    deb: http://download1.operacdn.com/pub/opera/desktop/45.0.2552.898/linux/opera-stable_45.0.2552.898_i386.deb
-  become: true
+- name: Add opera repo
+  apt_repository: repo="deb http://deb.opera.com/opera/ stable non-free" state=present
+
+- name: Add the opera APT key
+  apt_key: url=http://deb.opera.com/archive.key state=present
+
+- name: Install opera
+  apt: name={{item}} state=latest
+  with_items:
+  - opera
