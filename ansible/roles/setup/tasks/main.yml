@@ -38,13 +38,14 @@
 - name: Add repository
   apt_repository: 
     repo: 'deb http://repository.spotify.com stable non-free'
+  become: true
 
 - name: Install spotify
   apt: 
     name: spotify-client 
     update_cache: yes 
     state: latest
-    become: true
+  become: true
   
 - name: "Install Opera"
   apt:
