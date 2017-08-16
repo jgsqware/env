@@ -9,14 +9,13 @@ sudo apt-add-repository ppa:ansible/ansible
 
 echo 'Prerequisite installation'
 sudo apt-get update
-sudo apt-get install -y \
-  software-properties-common \
+sudo apt-get install --allow-unauthenticated -y software-properties-common \
   git \
   enpass \
   ansible 
 
-echo 'Copy SSH key from Enpass'
-read -n 1 -s -r -p "Press any key to continue when it's done"
+echo 'Copy SSH key from Enpass BEFORE CONTINUING'
+read -p "Press [Enter] key to continue..."
 
 echo 'Clone jgsqware/env'
 git clone git@github.com:jgsqware/env.git ~/workspace/github/jgsqware/env
