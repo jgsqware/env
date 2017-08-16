@@ -1,0 +1,21 @@
+- name: Add apt keys
+  apt_key: 
+    keyserver: keyserver.ubuntu.com 
+    id: "{{ item }}"
+    state: present
+  with_items:
+    - BBEBDCB318AD50EC6865090613B00F1FD2C19886
+    - 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+  become: true
+
+- name: Add repository
+  apt_repository: 
+    repo: 'deb http://repository.spotify.com stable non-free'
+  become: true
+
+- name: Install spotify
+  apt: 
+    name: spotify-client 
+    update_cache: yes 
+    state: latest
+  become: true

@@ -1,4 +1,11 @@
 ---
 - hosts: all
   roles:
-    - role: setup
+    - role: tools
+    - role: oh-my-zsh
+    - role: kde
+  post_tasks:
+    - debug: 
+        msg: 
+          - "Change the KDE look and feel to Arc Dark"
+          - "System Settings -> Workspace Theme -> Look and Feel -> Arc Dark"

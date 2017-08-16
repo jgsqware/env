@@ -1,0 +1,29 @@
+- name: "Download Konsole Color profile"
+  get_url:
+    url: "https://raw.githubusercontent.com/cskeeters/base16-konsole/master/colorscheme/base16-chalk.colorscheme"
+    dest: /usr/share/konsole/base16-chalk.colorscheme
+    mode: 0755
+  become: true
+
+- name: Add repository
+  apt_repository: 
+    repo: "{{item}}"
+  become: true
+  with_items:
+    - 'ppa:papirus/arc-kde'
+    - 'ppa:papirus/papirus'
+
+- name: Install arc-kde
+  apt: 
+    name: "{{item}}"
+    update_cache: yes 
+    state: latest
+  become: true
+  with_items:
+    - papirus-icon-theme
+    - arc-kde
+    - kvantum
+  
+# - name: "Fix menubar color"
+#   script: "/usr/share/plasma/desktoptheme/Arc-Dark/fix-menubar.sh"
+#   become: true

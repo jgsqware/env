@@ -5,6 +5,9 @@ plugins=(git docker docker-compose go vagrant ansible kubectl)
 source $ZSH/oh-my-zsh.sh
 TERM=xterm-256color
 
+if hash konsole 2>/dev/null; then
+    konsoleprofile colors=base16-chalk
+fi
 
 export PATH="$PATH/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"
 

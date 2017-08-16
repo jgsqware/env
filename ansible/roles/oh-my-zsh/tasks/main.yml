@@ -1,0 +1,32 @@
+- name: "Install zsh"
+  apt:
+    name: "zsh"
+    state: present
+    update_cache: true
+  become: true
+
+- name: "Install Oh-My-Zsh"
+  shell: "curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
+  become: true
+
+- name: "Change shell to ZSH"
+  user:
+    name: "{{ansible_user}}"
+    shell: '/usr/bin/zsh'
+  become: true
+
+- name: "Clean .zshrc"
+  file: 
+    path: ${HOME}/.zshrc
+    state: absent
+
+- name: "set Oh-My-zsh Symbolic link"
+  file:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+    state: link
+  with_items:
+    - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/spaceship.zsh-theme', dest: '${HOME}/.oh-my-zsh/themes/spaceship.zsh-theme' }
+    - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/functions', dest: '${HOME}/.oh-my-zsh/functions' }
+    - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/.zshrc', dest: '~/.zshrc' }
+

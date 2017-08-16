@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/juliengarciagonzalez/workspace/go/src/github.com/giantswarm/leanix-exporter'
-let g:netrw_dirhist_2='/Users/juliengarciagonzalez/workspace/go/src/github.com/giantswarm/leanix-exporter/github.com/jgsqware/termitask'
-let g:netrw_dirhist_3='/Users/juliengarciagonzalez'
-let g:netrw_dirhist_4='/Users/juliengarciagonzalez/workspace/go/src/github.com/giantswarm/leanix-exporter/github.com/jgsqware/termitask'
-let g:netrw_dirhist_5='/Users/juliengarciagonzalez'
-let g:netrw_dirhist_6='/Users/juliengarciagonzalez/workspace/go/src/github.com/giantswarm/leanix-exporter/github.com/jgsqware/termitask'

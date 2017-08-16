@@ -22,3 +22,7 @@ chmod 400 ~/.ssh/id_rsa
 
 echo 'Clone jgsqware/env'
 git clone git@github.com:jgsqware/env.git ~/workspace/github/jgsqware/env
+
+echo 'Go to ansible folder and run ansible: '
+echo '$ cd $WORKSPACE/github/jgsqware/env/ansible'
+echo '$ ansible-playbook -K -i hosts playbook.yml'

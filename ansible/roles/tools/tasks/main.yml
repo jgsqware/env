@@ -1,0 +1,19 @@
+- name: "Install tools"
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: true
+  with_items:
+    - "jq"
+    - "source-highlight"
+    - "curl"
+    - "fonts-firacode"
+  become: true
+
+- include: "git.yml"
+- include: "go.yml"
+- include: "vscode.yml"
+- include: "spotify.yml"
+- include: "opera.yml"
+- include: "vim.yml"
+
