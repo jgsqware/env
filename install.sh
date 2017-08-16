@@ -18,5 +18,7 @@ echo 'Copy SSH key from Enpass BEFORE CONTINUING'
 echo 'Press Enter to continue'
 read secondyn </dev/tty
 
+chmod 400 ~/.ssh/id_rsa
+
 echo 'Clone jgsqware/env'
 git clone git@github.com:jgsqware/env.git ~/workspace/github/jgsqware/env
