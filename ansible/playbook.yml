@@ -4,6 +4,7 @@
     - role: tools
     - role: oh-my-zsh
     - role: kde
+    - role: laptop-setup
   post_tasks:
     - debug: 
         msg: 

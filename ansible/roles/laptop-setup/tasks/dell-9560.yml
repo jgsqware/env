@@ -1,0 +1,59 @@
+- name: Add tlp repository
+  apt_repository: 
+    repo: "{{item}}"
+  become: true
+  with_items:
+    - 'ppa:linrunner/tlp'
+
+- name: Install tlp
+  apt: 
+    name: "{{item}}"
+    update_cache: yes 
+    state: latest
+  become: true
+  with_items:
+    - tlp
+    - tlp-rdw
+
+- name: Get default kernel parameters
+  shell: . /etc/default/grub ; echo $GRUB_CMDLINE_LINUX_DEFAULT | tr " " "\n"
+  register: grub_register_default_cmdline
+
+- name: Default kernel parameters
+  set_fact:
+    grub_fact_default_kernel_parameters: '{{ grub_register_default_cmdline.stdout_lines }}'
+
+- name: Set acpi_rev_override=1
+  lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT'
+    line: "GRUB_CMDLINE_LINUX_DEFAULT=\"{{grub_fact_default_kernel_parameters | join(' ') }} acpi_rev_override=1\""
+    state: present
+  become: true
+  when: '"acpi_rev_override=1" not in grub_fact_default_kernel_parameters'
+
+- name: Update Grub
+  command: "update-grub"
+  become: true
+  when: '"acpi_rev_override=1" not in grub_fact_default_kernel_parameters'
+
+# - name: Add bumblebee repository
+#   apt_repository: 
+#     repo: "{{item}}"
+#   become: true
+#   with_items:
+#     - 'ppa:bumblebee/stable'
+
+- name: Install Bumblebee
+  apt: 
+    name: "{{item}}"
+    update_cache: yes 
+    state: latest
+  become: true
+  with_items:
+    - bumblebee
+
+- name: Enable bumblebeed service
+  service:
+    name: bumblebeed
+    enabled: yes

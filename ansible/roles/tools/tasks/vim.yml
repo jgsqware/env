@@ -10,7 +10,6 @@
     dest: "{{item.dest}}"
     state: link
   with_items:
-    - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/spaceship.zsh-theme', dest: '${HOME}/.oh-my-zsh/themes/spaceship.zsh-theme' }
     - { src: '${HOME}/workspace/github/jgsqware/env/vim/.vim', dest: '${HOME}/.vim' }
     - { src: '${HOME}/workspace/github/jgsqware/env/vim/.vimrc', dest: '~/.vimrc' }
 

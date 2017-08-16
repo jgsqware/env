@@ -1,0 +1,11 @@
+- name: get product name
+  command: "dmidecode -s system-product-name"
+  register: cmd_product_name
+  become: true
+
+- name: Set Product name
+  set_fact:
+    product_name: '{{ cmd_product_name.stdout }}'
+
+- include: "dell-9560.yml"
+  when: product_name == "XPS 15 9560"
