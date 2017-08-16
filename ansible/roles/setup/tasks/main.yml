@@ -15,6 +15,7 @@
     url: "https://raw.githubusercontent.com/cskeeters/base16-konsole/master/colorscheme/base16-chalk.colorscheme"
     dest: /usr/share/konsole/base16-chalk.colorscheme
     mode: 0755
+  become: true
 
 - name: "Change Konsole theme"
   command: "konsoleprofile colors=base16-chalk"
