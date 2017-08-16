@@ -1,6 +1,6 @@
 #!/bin/bash
 echo 'Setup Enpass repository'
-echo 'deb http://repo.sinew.in/ stable main' | sudo tee --append /etc/apt/sources.list.d/enpass.list > /dev/null
+sudo sh -c 'echo "deb http://repo.sinew.in/ stable main" >> /etc/apt/sources.list.d/enpass.list'
 wget -O - https://dl.sinew.in/keys/enpass-linux.key | apt-key add -
 
 echo 'Setup Ansible repository'
