@@ -15,7 +15,8 @@ sudo apt-get install --allow-unauthenticated -y software-properties-common \
   ansible 
 
 echo 'Copy SSH key from Enpass BEFORE CONTINUING'
-read -p "Press [Enter] key to continue..."
+echo 'Press Enter to continue'
+read secondyn </dev/tty
 
 echo 'Clone jgsqware/env'
 git clone git@github.com:jgsqware/env.git ~/workspace/github/jgsqware/env
