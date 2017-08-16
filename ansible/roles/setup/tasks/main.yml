@@ -5,9 +5,9 @@
     update_cache: true
   with_items:
     - "jq"
-    - "source-highlight"
-    - "curl"
-    - "fonts-firacode"
+    # - "source-highlight"
+    # - "curl"
+    # - "fonts-firacode"
   become: true
 
 - name: "Download Konsole Color profile"
