@@ -63,6 +63,6 @@
 
 - name: Install opera
   apt: 
-    name: opera 
+    name: opera-stable
     state: latest
   become: true
