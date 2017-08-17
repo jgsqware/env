@@ -1,0 +1,18 @@
+- name: "get Stable version"
+  uri:
+    url: "https://storage.googleapis.com/kubernetes-release/release/stable.txt"
+    return_content: yes
+  register: k8s_stable_version
+
+- name: "Download kubectl"
+  get_url:
+    url: "https://storage.googleapis.com/kubernetes-release/release/{{k8s_stable_version.content | replace('\n', '')}}/bin/linux/amd64/kubectl"
+    dest: /usr/local/bin/kubectl
+    mode: 0755
+  become: true
+
+- name: "Set autocompletion for kubectl"
+  lineinfile:
+    path: "~/.zshrc"
+    regexp: '^source.*kubectl'
+    line: 'source <(kubectl completion zsh)'
