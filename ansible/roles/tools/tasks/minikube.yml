@@ -1,4 +1,4 @@
-- name: "get Stable version"
+- name: "get k8s stable version"
   uri:
     url: "https://storage.googleapis.com/kubernetes-release/release/stable.txt"
     return_content: yes
@@ -16,3 +16,13 @@
     path: "~/.zshrc"
     regexp: '^source.*kubectl'
     line: 'source <(kubectl completion zsh)'
+
+- name: "Install minikube"
+  get_url:
+    url: https://storage.googleapis.com/minikube/releases/v0.21.0/minikube-linux-amd64
+    dest: /usr/local/bin/minikube
+    mode: 0755
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+    checksum: sha256:c5dc6e8d85f96d4bfba321bdca93b2a828a714162653a55a9b3a6d527f517e82
+  become: true

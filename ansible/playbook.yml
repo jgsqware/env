@@ -4,9 +4,15 @@
     - name: Get lsb release
       command: lsb_release -cs
       register: cmd_lsb_release
+    - name: get product name
+      command: "dmidecode -s system-product-name"
+      register: cmd_product_name
+      become: true
+
     - name: Save facts
       set_fact:
         lsb_release: "{{cmd_lsb_release.stdout}}"
+        product_name: "{{ cmd_product_name.stdout }}"
   roles:
     - role: tools
     # - role: oh-my-zsh
@@ -18,6 +24,9 @@
           - "1. Change the KDE look and feel to Arc Dark"
           - "   System Settings -> Workspace Theme -> Look and Feel -> Arc Dark"
           - "   Check 'Use Desktop Layout from theme'"
-          - "2. Logout - Login for"
+          - " "
+          - "2. Sync VSCode"
+          - "   Shift + Alt + D -> Enter GIST (from Enpass)"
+          - "3. Logout - Login for"
           - "   - theme"
           - "   - docker"

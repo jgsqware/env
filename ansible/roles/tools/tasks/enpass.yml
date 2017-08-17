@@ -1,0 +1,10 @@
+- name: Force scaling
+  lineinfile:
+    path: "/opt/Enpass/bin/runenpass.sh"
+    regexp: "^export QT_AUTO_SCREEN_SCALE_FACTOR=0$"
+    insertbefore: "^exec"
+    line: "export QT_AUTO_SCREEN_SCALE_FACTOR=0"
+    state: present
+  become: true
+  when: product_name == "XPS 15 9560"
+

@@ -40,3 +40,4 @@ fi
 export CDPATH=".:$WORKSPACE:$GOPATH/src"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source <(kubectl completion zsh)

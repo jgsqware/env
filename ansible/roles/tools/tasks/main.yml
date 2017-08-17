@@ -20,5 +20,5 @@
 # - include: "rescuetime.yml"
 # - include: "docker.yml"
 # - include: "virtualbox.yml"
-- include: "minikube.yml"
-
+# - include: "minikube.yml"
+- include: "enpass.yml"

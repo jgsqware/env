@@ -19,3 +19,14 @@
     update_cache: yes 
     state: latest
   become: true
+
+- name: Force scaling
+  replace:
+    path: "/usr/share/applications/spotify.desktop"
+    regexp: "^Exec=.*$"
+    replace: "Exec=spotify --force-device-scale-factor={{spotify_scaling_factor}} %U"
+  become: true
+  when: product_name == "XPS 15 9560"
+
+
+  
