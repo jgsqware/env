@@ -10,10 +10,12 @@
     - "fonts-firacode"
   become: true
 
-- include: "git.yml"
-- include: "go.yml"
-- include: "vscode.yml"
-- include: "spotify.yml"
-- include: "opera.yml"
-- include: "vim.yml"
+# - include: "git.yml"
+# - include: "go.yml"
+# - include: "vscode.yml"
+# - include: "spotify.yml"
+# - include: "opera.yml"
+# - include: "vim.yml"
+# - include: "slack.yml"
+- include: "rescuetime.yml"
 

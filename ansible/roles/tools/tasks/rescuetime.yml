@@ -1,0 +1,22 @@
+- name: "Install RescueTime"
+  apt:
+    deb: "{{role_path}}/files/rescuetime_current_amd64.deb"
+  become: true
+
+- name: "Stop running RescueTime"
+  shell: "killall rescuetime || true"
+
+- name: "Activate RescueTime"
+  command: "rescuetime"
+  async: 600
+  poll: 0
+
+- name: "Ensure autostart folder is created"
+  file:
+    path: "~/.config/autostart"
+    state: directory
+
+- name: "Enable RescueTime on startup"
+  copy: 
+    src: "{{role_path}}/files/rescuetime.desktop"
+    dest: "~/.config/autostart/rescuetime.desktop"
