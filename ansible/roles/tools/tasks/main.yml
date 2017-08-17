@@ -17,5 +17,6 @@
 # - include: "opera.yml"
 # - include: "vim.yml"
 # - include: "slack.yml"
-- include: "rescuetime.yml"
+# - include: "rescuetime.yml"
+- include: "docker.yml"
 

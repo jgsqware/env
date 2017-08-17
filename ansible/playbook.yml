@@ -1,5 +1,12 @@
 ---
 - hosts: all
+  pre_tasks:
+    - name: Get lsb release
+      command: lsb_release -cs
+      register: cmd_lsb_release
+    - name: Save facts
+      set_fact:
+        lsb_release: "{{lsb_release.stdout}}"
   roles:
     - role: tools
     # - role: oh-my-zsh
