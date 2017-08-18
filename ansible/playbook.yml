@@ -3,7 +3,7 @@
   pre_tasks:
     - name: Install lsb_release
       pacman:
-        name: lsb_release
+        name: lsb-release
         state: latest
         update_cache: yes
       become: true
