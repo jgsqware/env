@@ -38,10 +38,10 @@ archInstall() {
   echo "Arch flavor installation"
 
   echo 'Install Enpass'
-  yaourt -S --noconfirm aur/enpass-bin
+  sudo yaourt -S --noconfirm aur/enpass-bin
 
   echo 'Install ansible'
-  pacman -S --noconfirm enpass
+  sudo pacman -S --noconfirm ansible 
 
   setupEnv
 }
