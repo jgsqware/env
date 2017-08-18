@@ -2,10 +2,10 @@
 - hosts: all
   pre_tasks:
     - name: Install lsb_release
-        pacman:
-          name: lsb_release
-          state: latest
-          update_cache: yes
+      pacman:
+        name: lsb_release
+        state: latest
+        update_cache: yes
       tags:
         - artengos
     - name: Get lsb release
