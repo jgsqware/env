@@ -155,7 +155,7 @@ def main():
     if not p['dir']:
         dir = '/home/%s/.config/aur' % user
         if not os.path.exists(dir):
-            os.makedirs(directory)
+            os.makedirs(dir)
     else:
         dir = os.path.expanduser(p['dir'])
 
