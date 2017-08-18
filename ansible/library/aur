@@ -151,9 +151,11 @@ def main():
         user = p['user']
 
     # If no directory was given, assume the packages should be downloaded to
-    # ~/aur.
+    # ~/.config/aur.
     if not p['dir']:
-        dir = '/home/%s/aur' % user
+        dir = '/home/%s/.config/aur' % user
+        if not os.path.exists(dir):
+            os.makedirs(directory)
     else:
         dir = os.path.expanduser(p['dir'])
 
