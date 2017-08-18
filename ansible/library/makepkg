@@ -175,8 +175,7 @@ def make_package(module, pkg, pkg_file_src):
     if pkg_file_src:
         # copy file to build directory
         try:
-            # shutil.copy2(pkg_file_src, build_dir)
-            module.fail_json(msg="failed to copy package %s to build directory %s: %s" % (pkg_file_src, build_dir, str(err)))
+            shutil.copy2(pkg_file_src, build_dir)
         except Exception, err:
             module.fail_json(msg="failed to copy package %s to build directory %s: %s" % (pkg_file_src, build_dir, str(err)))
     else:
