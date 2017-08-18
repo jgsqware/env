@@ -11,7 +11,7 @@ setupEnv() {
   
   echo 'Go to ansible folder and run ansible: '
   echo '$ cd $WORKSPACE/github/jgsqware/env/ansible'
-  echo '$ ansible-playbook -K -i hosts playbook.yml'
+  echo '$ ansible-playbook -K -i hosts playbook.yml -e "ansible_python_interpreter=/usr/bin/python3"'
 }
 
 ubuntuInstall() {
