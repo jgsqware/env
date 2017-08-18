@@ -1,7 +1,17 @@
+# - name: "Download cower"
+#   get_url:
+#     src: https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+#     dest: /var/cache/pacman/pkg/cower/PKGBUILD
+#   become: true
+
+# - name: Ensure cower is installed
+#   makepkg:
+#     name: cower
+#     state: present
+#   become: true
+#   become_method: sudo
+
 - name: Ensure cower is installed
-  makepkg:
-    name: cower
-    state: present
-  become: true
-  become_method: sudo
-#https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+  aur:
+    name: cower 
+    user: "{{ansible_user}}"
