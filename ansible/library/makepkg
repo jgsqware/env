@@ -148,7 +148,7 @@ def prepare_build_dir(module, pkg_name, sudo_user):
     directory = os.path.join(build_dir, pkg_name)
     if not os.path.exists(directory):
         try:
-            os.mkdir(directory, 0755)
+            os.mkdir(directory, 0o755)
         except OSError:
             module.fail_json(msg="failed to create build directory %s" % (directory))
 
