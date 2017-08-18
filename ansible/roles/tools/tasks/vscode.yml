@@ -2,8 +2,16 @@
   apt:
     deb: https://go.microsoft.com/fwlink/?LinkID=760868
   become: true
+  tags:
+    - ubuntu
 
 
-visual-studio-code
+- name: "Install VSCode"
+  aur:
+    name: visual-studio-code
+    user: "{{ansible_user}}"
+  tags:
+    - artengos
+
 # - name: "Install Sync extension"
 #   command: "code --install-extension Shan.code-settings-sync"

@@ -19,7 +19,7 @@
 
 # - include: "git.yml"
 # - include: "go.yml"
-# - include: "vscode.yml"
+- include: "vscode.yml"
 # - include: "spotify.yml"
 # - include: "opera.yml"
 # - include: "vim.yml"
