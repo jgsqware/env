@@ -167,7 +167,7 @@ def make_package(module, pkg, pkg_file_src):
     command_prefix = "sudo -u %s " % sudo_user
 
     build_dir = prepare_build_dir(module, pkg, sudo_user)
-
+ 
     cmd = ""
     pkg_file_basename = "%s.tar.gz" % pkg
     pkg_file_dest = os.path.join(build_dir, pkg_file_basename)
@@ -175,7 +175,8 @@ def make_package(module, pkg, pkg_file_src):
     if pkg_file_src:
         # copy file to build directory
         try:
-            shutil.copy2(pkg_file_src, build_dir)
+            # shutil.copy2(pkg_file_src, build_dir)
+            module.fail_json(msg="failed to copy package %s to build directory %s: %s" % (pkg_file_src, build_dir, str(err)))
         except Exception, err:
             module.fail_json(msg="failed to copy package %s to build directory %s: %s" % (pkg_file_src, build_dir, str(err)))
     else:
