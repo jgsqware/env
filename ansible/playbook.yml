@@ -17,28 +17,25 @@
       command: lsb_release -cs
       register: cmd_lsb_release
       tags:
-        - artengos
-        - ubuntu
+        - always
     - name: get product name
       command: "dmidecode -s system-product-name"
       register: cmd_product_name
       become: true
       tags:
-        - artengos
-        - ubuntu
+        - always
 
     - name: Save facts
       set_fact:
         lsb_release: "{{cmd_lsb_release.stdout}}"
         product_name: "{{ cmd_product_name.stdout }}"
       tags:
-        - artengos
-        - ubuntu
+        - always
 
   roles:
-    - role: tools
-    # - role: oh-my-zsh
-    # - role: kde
+    - role: oh-my-zsh
+    # - role: tools
+    - role: kde
     # - role: laptop-setup
   post_tasks:
     - debug: 
@@ -47,8 +44,13 @@
           - "   System Settings -> Workspace Theme -> Look and Feel -> Arc Dark"
           - "   Check 'Use Desktop Layout from theme'"
           - " "
+          - "2. Disable <Alt+LeftMouse>"
+          - "   System Settings -> Window Management -> Window Behaviour -> Window Actions - Inner Window, Titlebar & Frame -> Left button -> Nothing"
           - "2. Sync VSCode"
           - "   Shift + Alt + D -> Enter GIST (from Enpass)"
+          - " "
           - "3. Logout - Login for"
           - "   - theme"
           - "   - docker"
+      tags:
+        - always

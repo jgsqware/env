@@ -3,26 +3,35 @@
     url: "https://storage.googleapis.com/kubernetes-release/release/stable.txt"
     return_content: yes
   register: k8s_stable_version
-
+  tags:
+    - always
+    
 - name: "Download kubectl"
   get_url:
     url: "https://storage.googleapis.com/kubernetes-release/release/{{k8s_stable_version.content | replace('\n', '')}}/bin/linux/amd64/kubectl"
     dest: /usr/local/bin/kubectl
     mode: 0755
   become: true
-
+  tags:
+    - always
+    
 - name: "Set autocompletion for kubectl"
   lineinfile:
     path: "~/.zshrc"
     regexp: '^source.*kubectl'
     line: 'source <(kubectl completion zsh)'
-
+  tags:
+    - always
+    
 - name: "Install minikube"
   get_url:
     url: https://storage.googleapis.com/minikube/releases/v0.21.0/minikube-linux-amd64
     dest: /usr/local/bin/minikube
     mode: 0755
     owner: "{{ansible_user}}"
-    group: "{{ansible_user}}"
+    group: "users"
     checksum: sha256:c5dc6e8d85f96d4bfba321bdca93b2a828a714162653a55a9b3a6d527f517e82
   become: true
+  tags:
+    - always
+      

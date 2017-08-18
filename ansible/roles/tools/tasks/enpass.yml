@@ -7,4 +7,6 @@
     state: present
   become: true
   when: product_name == "XPS 15 9560"
+  tags:
+    - always
 

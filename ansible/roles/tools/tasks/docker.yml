@@ -10,18 +10,24 @@
     - "gnupg2"
     - "software-properties-common"
   become: true
+  tags:
+    - ubuntu
 
 - name: "Add GPG key"
   apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
   become: true
+  tags:
+    - ubuntu
 
 - name: "Add APT repository"
   apt_repository:
     repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{lsb_release}} stable"
     state: present
   become: true
+  tags:
+    - ubuntu
 
 - name: "Install Docker CE"
   apt:
@@ -29,6 +35,67 @@
     state: present
     update_cache: true
   become: true
+  tags:
+    - ubuntu
+
+- name: "Copy loop Module"
+  copy:
+    src: "{{role_path}}/files/docker/loop.conf"
+    dest: "/etc/modules-load.d/loop.conf"
+  become: true
+  tags:
+    - artengos
+
+- name: "Enable loop module"
+  command: "modprobe loop"
+  become: true
+  tags:
+    - artengos
+
+- name: "Install Docker CE"
+  pacman:
+    name: "docker"
+    state: present
+    update_cache: true
+  become: true
+  tags:
+    - artengos
+
+- name: "Start docker service"
+  systemd: 
+    name: docker
+    enabled: yes
+    state: started
+    daemon_reload: yes
+  become: true
+  tags:
+    - always
+
+- name: "Create docker.service.d folder"
+  file:
+    path: "/etc/systemd/system/docker.service.d"
+    state: directory
+  become: true
+  tags:
+    - artengos
+
+- name: "Enable Overlay2 storage driver"
+  copy:
+    src: "{{role_path}}/files/docker/override.conf"
+    dest: "/etc/systemd/system/docker.service.d/override.conf"
+  become: true
+  tags:
+    - artengos
+
+- name: "Restart docker service"
+  systemd: 
+    name: docker
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
+  become: true
+  tags:
+    - artengos
 
 - name: "Add user in docker group"
   user:
@@ -36,6 +103,8 @@
     groups: docker
     append: yes
   become: true
+  tags:
+    - always
 
 - name: "Install docker-compose"
   get_url:
@@ -43,5 +112,9 @@
     dest: /usr/local/bin/docker-compose
     mode: 0755
     owner: "{{ansible_user}}"
-    group: "{{ansible_user}}"
+    group: "users"
   become: true
+  tags:
+    - always
+
+

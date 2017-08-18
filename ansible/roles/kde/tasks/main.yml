@@ -4,6 +4,8 @@
     dest: /usr/share/konsole/base16-chalk.colorscheme
     mode: 0755
   become: true
+  tags:
+    - always
 
 - name: Add repository
   apt_repository: 
@@ -12,6 +14,8 @@
   with_items:
     - 'ppa:papirus/arc-kde'
     - 'ppa:papirus/papirus'
+  tags:
+    - ubuntu
 
 - name: Install arc-kde
   apt: 
@@ -23,6 +27,29 @@
     - papirus-icon-theme
     - arc-kde
     - kvantum
+  tags:
+    - ubuntu
+
+- name: Install arc-kde
+  pacman:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - arc-kde
+  tags:
+    - artengos
+
+- name: Install kvantum & papirus-icon
+  aur:
+    name: "{{item}}"
+    user: "{{ansible_user}}"
+  become: true
+  with_items:
+    - kvantum-qt5
+    - papirus-icon-theme-git
+  tags:
+    - artengos
   
 # - name: "Fix menubar color"
 #   script: "/usr/share/plasma/desktoptheme/Arc-Dark/fix-menubar.sh"

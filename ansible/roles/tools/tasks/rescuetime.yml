@@ -2,21 +2,42 @@
   apt:
     deb: "{{role_path}}/files/rescuetime_current_amd64.deb"
   become: true
+  tags:
+    - ubuntu
+
+- name: "Install RescueTime"
+  aur:
+    name: "{{item}}"
+    user: "{{ansible_user}}"
+  become: true
+  with_items:
+    - xprintidle
+    - rescuetime
+  tags:
+    - artengos
 
 - name: "Stop running RescueTime"
   shell: "killall rescuetime || true"
+  tags:
+    - always
 
 - name: "Activate RescueTime"
   command: "rescuetime"
   async: 600
   poll: 0
+  tags:
+    - always
 
 - name: "Ensure autostart folder is created"
   file:
     path: "~/.config/autostart"
     state: directory
+  tags:
+    - always
 
 - name: "Enable RescueTime on startup"
   copy: 
     src: "{{role_path}}/files/rescuetime.desktop"
     dest: "~/.config/autostart/rescuetime.desktop"
+  tags:
+    - always

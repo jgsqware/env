@@ -3,17 +3,33 @@
     url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     state: present
   become: true
+  tags:
+    - ubuntu
 
 - name: Configure the VirtualBox APT repositories
   apt_repository: 
     repo: "deb http://download.virtualbox.org/virtualbox/debian {{ lsb_release }} contrib"
     state: present
   become: true
-
+  tags:
+    - ubuntu
 
 - name: Install VirtualBox
   apt: 
     pkg: virtualbox-{{ virtualbox_version }} 
     state: present
   become: true
-  
+  tags:
+    - ubuntu
+
+- name: Install VirtualBox
+  pacman:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - virtualbox  
+    - virtualbox-host-dkms
+    # - virtualbox-host-modules-arch
+  tags:
+    - artengos

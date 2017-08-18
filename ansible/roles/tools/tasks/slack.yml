@@ -2,3 +2,12 @@
   apt:
     deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.0-amd64.deb
   become: true
+  tags:
+    - ubuntu
+  
+- name: "Install Slack"
+  aur:
+    name: slack-desktop
+    user: "{{ansible_user}}"
+  tags:
+    - artengos

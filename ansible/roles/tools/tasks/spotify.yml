@@ -7,11 +7,15 @@
     - BBEBDCB318AD50EC6865090613B00F1FD2C19886
     - 0DF731E45CE24F27EEEB1450EFDC8610341D9410
   become: true
+  tags:
+    - ubuntu
 
 - name: Add repository
   apt_repository: 
     repo: 'deb http://repository.spotify.com stable non-free'
   become: true
+  tags:
+    - ubuntu
 
 - name: Install spotify
   apt: 
@@ -19,6 +23,15 @@
     update_cache: yes 
     state: latest
   become: true
+  tags:
+    - ubuntu
+
+- name: Install Spotify
+  aur:
+    name: spotify
+    user: "{{ansible_user}}"
+  tags:
+    - artengos
 
 - name: Force scaling
   replace:
@@ -27,6 +40,8 @@
     replace: "Exec=spotify --force-device-scale-factor={{spotify_scaling_factor}} %U"
   become: true
   when: product_name == "XPS 15 9560"
+  tags:
+    - always
 
 
   

@@ -4,6 +4,8 @@
     state: present
     update_cache: true
   become: true
+  tags:
+    - ubuntu
 
 - name: "set Git Symbolic link"
   file:
@@ -13,3 +15,6 @@
   with_items:
     - { src: '${HOME}/workspace/github/jgsqware/env/git/.gitconfig', dest: '~/.gitconfig' }
     - { src: '${HOME}/workspace/github/jgsqware/env/git/.gitignore_global', dest: '~/.gitignore_global' }
+  tags:
+    - always
+    

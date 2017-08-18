@@ -4,21 +4,74 @@
     state: present
     update_cache: true
   become: true
+  tags:
+    - ubuntu
 
-- name: "Install Oh-My-Zsh"
-  shell: "curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
+- name: "Install zsh"
+  pacman:
+    name: "zsh"
+    state: present
+    update_cache: true
   become: true
+  tags:
+    - artengos
+
+- name: "Get Oh-My-ZSH script"
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: /tmp/oh-my-zsh.sh
+    mode: 0755
+  tags:
+    - ubuntu
+
+- name: "Install Oh-My-ZSH"
+  script: "/tmp/oh-my-zsh.sh"  
+  become: true
+  become_method: sudo
+  tags:
+    - ubuntu
+
+- name: "Install Oh-My-ZSH"
+  aur:
+    name: "oh-my-zsh-git"
+    user: "{{ansible_user}}"
+  become: true
+  tags:
+    - artengos
+
+- name: "set Oh-My-zsh Symbolic link"
+  file:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+    state: link
+  with_items:
+    - { src: '/usr/share/oh-my-zsh/', dest: '${HOME}/.oh-my-zsh' }
+
+- name: "change oh-my-zsh permission"
+  file: 
+    path: /usr/share/oh-my-zsh
+    owner: "{{ansible_user}}"
+    group: "users"
+    recurse: yes
+  become: true
+  tags:
+    - always
 
 - name: "Change shell to ZSH"
   user:
     name: "{{ansible_user}}"
     shell: '/usr/bin/zsh'
   become: true
+  tags:
+    - always
+
 
 - name: "Clean .zshrc"
   file: 
     path: ${HOME}/.zshrc
     state: absent
+  tags:
+    - always
 
 - name: "set Oh-My-zsh Symbolic link"
   file:
@@ -29,4 +82,6 @@
     - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/spaceship.zsh-theme', dest: '${HOME}/.oh-my-zsh/themes/spaceship.zsh-theme' }
     - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/functions', dest: '${HOME}/.oh-my-zsh/functions' }
     - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/.zshrc', dest: '~/.zshrc' }
+  tags:
+    - always
 

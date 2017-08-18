@@ -15,3 +15,5 @@
 
 # - name: "Install Sync extension"
 #   command: "code --install-extension Shan.code-settings-sync"
+  # tags:
+  #   - always

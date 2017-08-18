@@ -3,21 +3,39 @@
     url: http://deb.opera.com/archive.key 
     state: present
   become: true
+  tags:
+    - ubuntu
 
 - name: Add opera repo
   apt_repository: 
     repo: "deb http://deb.opera.com/opera/ stable non-free" 
     state: present
   become: true
+  tags:
+    - ubuntu
 
 - name: Install opera
   apt: 
     name: opera-stable
     state: latest
   become: true
+  tags:
+    - ubuntu
+
+- name: Install opera
+  pacman:
+    name: opera
+    state: present
+  become: true
+  tags:
+    - artengos
 
 - name: "Close running opera"
-  command: "killall opera"
+  shell: "killall opera || true"
+  tags:
+    - always
   
 - name: "Install Enpass extension (Close opera when done)"
   command: "opera https://addons.opera.com/en/extensions/details/enpass-password-manager-extension-for-opera/"
+  tags:
+    - always
