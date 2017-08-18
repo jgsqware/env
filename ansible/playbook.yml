@@ -6,8 +6,10 @@
         name: lsb_release
         state: latest
         update_cache: yes
+      become: true
       tags:
         - artengos
+
     - name: Get lsb release
       command: lsb_release -cs
       register: cmd_lsb_release
