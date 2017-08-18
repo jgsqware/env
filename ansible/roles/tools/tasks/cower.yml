@@ -1,6 +1,6 @@
 - name: Ensure cower is installed
   makepkg:
     name: cower
-	state: present
+    state: present
 
 #https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
