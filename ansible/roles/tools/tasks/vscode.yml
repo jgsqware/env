@@ -3,5 +3,7 @@
     deb: https://go.microsoft.com/fwlink/?LinkID=760868
   become: true
 
+
+visual-studio-code
 # - name: "Install Sync extension"
 #   command: "code --install-extension Shan.code-settings-sync"

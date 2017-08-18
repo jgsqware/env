@@ -4,15 +4,25 @@
     - name: Get lsb release
       command: lsb_release -cs
       register: cmd_lsb_release
+      tags:
+        - artengos
+        - ubuntu
     - name: get product name
       command: "dmidecode -s system-product-name"
       register: cmd_product_name
       become: true
+      tags:
+        - artengos
+        - ubuntu
 
     - name: Save facts
       set_fact:
         lsb_release: "{{cmd_lsb_release.stdout}}"
         product_name: "{{ cmd_product_name.stdout }}"
+      tags:
+        - artengos
+        - ubuntu
+
   roles:
     - role: tools
     # - role: oh-my-zsh

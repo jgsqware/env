@@ -9,6 +9,13 @@
     - "curl"
     - "fonts-firacode"
   become: true
+  tags:
+    - ubuntu
+
+- include: "cower.yml"
+  tags:
+    - artengos
+
 
 # - include: "git.yml"
 # - include: "go.yml"
@@ -21,4 +28,4 @@
 # - include: "docker.yml"
 # - include: "virtualbox.yml"
 # - include: "minikube.yml"
-- include: "enpass.yml"
+# - include: "enpass.yml"
