@@ -1,11 +1,14 @@
 ---
 - hosts: all
   pre_tasks:
-    - name: Install lsb_release
+    - name: Install mandatory tools
       pacman:
-        name: lsb-release
+        name: "{{item}}"
         state: latest
         update_cache: yes
+      with_items:
+        - lsb-release
+        - dmidecode
       become: true
       tags:
         - artengos
