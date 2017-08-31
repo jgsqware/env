@@ -1,0 +1,11 @@
+- name: "Install Keybase"
+  apt:
+    deb: "https://prerelease.keybase.io/keybase_amd64.deb"
+  become: true
+  tags:
+    - ubuntu
+
+- name: "Run Keybase"
+  shell: "run_keybase"
+  tags:
+    - ubuntu

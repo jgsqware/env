@@ -6,7 +6,7 @@ alias zsh_alias="vim ~/.oh-my-zsh/functions/aliases.sh"
 alias zshconfig="vim ~/.zshrc"
 alias workspace="cd $WORKSPACE"
 alias env_dir="cd $ENV"
-
+alias env_ansible="code $ENV/ansible"
 alias hg="history | grep -i"
 alias pg="ps aux | grep -i"
 alias ip_wifi="ipconfig getifaddr en0"
@@ -22,3 +22,9 @@ alias mvn8='docker run --rm -v ~/.m2:/root/.m2 -v $(pwd):/src -v /dev/urandom:/d
 # Go
 alias playground="code $GOPATH/src/github.com/jgsqware/playground"
 alias godocs='godoc -http=":6060"'
+
+# Giantswarm
+export GS_GOPATH="$GOPATH/src/github.com/giantswarm/"
+export GS_AWS_OPERATOR="~/.ssh/aws-operator"
+alias gs_go="cd $GS_GOPATH"
+alias gingerctl="gsctl --api-endpoint https://api.g8s.ginger.eu-central-1.aws.gigantic.io --auth-token $GS_GINGER_AUTH_TOKEN"

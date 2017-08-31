@@ -1,4 +1,5 @@
 "General
+set encoding=utf-8
 set history=1000
 runtime macros/matchit.vim
 set wildmenu

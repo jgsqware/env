@@ -1,0 +1,31 @@
+- name: Install mkchromecast
+  apt: 
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - mkchromecast
+    - ffmpeg
+    - mkchromecast-alsa
+    - python-pyqt5
+  become: true
+  tags:
+    - ubuntu
+
+- name: "Copy .asoundrc"
+  copy:
+    src: "{{role_path}}/files/asoundrc"
+    dest: "~/.asoundrc"
+  tags:
+    - ubuntu
+    - artengos
+
+- name: Set snd-aloop module
+  lineinfile:
+    path: /etc/modules
+    regexp: '^snd-aloop'
+    line: "snd-aloop"
+    state: present
+  become: true
+  tags:
+    - ubuntu
+    - artengos

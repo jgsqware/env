@@ -8,6 +8,7 @@
     - "source-highlight"
     - "curl"
     - "fonts-firacode"
+    - "mkchromecast"
   become: true
   tags:
     - ubuntu
@@ -17,15 +18,19 @@
     - artengos
 
 
-# - include: "git.yml"
-# - include: "go.yml"
-# - include: "vscode.yml"
-# - include: "spotify.yml"
-# - include: "opera.yml"
-# - include: "vim.yml"
-# - include: "slack.yml"
-# - include: "rescuetime.yml"
-# - include: "docker.yml"
-# - include: "virtualbox.yml"
-# - include: "minikube.yml"
-# - include: "enpass.yml"
+- include: "git.yml"
+- include: "go.yml"
+- include: "vscode.yml"
+- include: "spotify.yml"
+- include: "opera.yml"
+- include: "vim.yml"
+- include: "slack.yml"
+- include: "rescuetime.yml"
+- include: "docker.yml"
+- include: "virtualbox.yml"
+- include: "minikube.yml"
+- include: "enpass.yml"
+- include: "dropbox.yml"
+- include: "keybase.yml"
+- include: "laverna.yml"
+- include: "mkchromecast.yml"

@@ -19,6 +19,7 @@
     name: opera-stable
     state: latest
   become: true
+  register: opera_state
   tags:
     - ubuntu
 
@@ -26,16 +27,20 @@
   pacman:
     name: opera
     state: present
+  when: opera_state.changed
   become: true
   tags:
     - artengos
 
 - name: "Close running opera"
   shell: "killall opera || true"
+  when: opera_state.changed
   tags:
     - always
   
 - name: "Install Enpass extension (Close opera when done)"
   command: "opera https://addons.opera.com/en/extensions/details/enpass-password-manager-extension-for-opera/"
+  when: opera_state.changed
   tags:
     - always
+  

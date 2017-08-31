@@ -17,26 +17,30 @@
       command: lsb_release -cs
       register: cmd_lsb_release
       tags:
-        - always
+        - ubuntu
+        - artengos
+
     - name: get product name
       command: "dmidecode -s system-product-name"
       register: cmd_product_name
       become: true
       tags:
-        - always
+        - ubuntu
+        - artengos
 
     - name: Save facts
       set_fact:
         lsb_release: "{{cmd_lsb_release.stdout}}"
         product_name: "{{ cmd_product_name.stdout }}"
       tags:
-        - always
+        - ubuntu
+        - artengos
 
   roles:
     - role: oh-my-zsh
-    # - role: tools
+    - role: tools
     - role: kde
-    # - role: laptop-setup
+    - role: laptop-setup
   post_tasks:
     - debug: 
         msg: 

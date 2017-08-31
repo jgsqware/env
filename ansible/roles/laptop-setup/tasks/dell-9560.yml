@@ -57,3 +57,39 @@
   service:
     name: bumblebeed
     enabled: yes
+
+# - name: "Install i8kutils"
+#   apt:
+#     name: "{{item}}"
+#     state: present
+#     update_cache: true
+#   with_items:
+#     - "i8kutils"
+#     - "conky"
+#   become: true
+#   tags:
+#     - ubuntu
+
+# - name: "Enable i8k"
+#   shell: "modprobe i8k force=1"
+#   become: true
+#   tags:
+#     - ubuntu
+    
+# - name: "Copy file"
+#   copy:
+#     src: "{{role_path}}/files/i8k"
+#     dest: " /etc/modprobe.d/i8k"
+#   become: true
+#   tags:
+#     - ubuntu
+
+# - name: Set acpi_rev_override=1
+#   lineinfile:
+#     path: /etc/modules
+#     regexp: '^i8k'
+#     line: "i8k"
+#     state: present
+#   become: true
+#   tags:
+#     - ubuntu

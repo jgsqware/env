@@ -1,13 +1,30 @@
-- name: "Install Slack"
-  apt:
-    deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.0-amd64.deb
-  become: true
-  tags:
-    - ubuntu
+# - name: "Install Slack"
+#   apt:
+#     deb: "https://downloads.slack-edge.com/linux_releases/slack-desktop-{{slack_version}}-amd64.deb"
+#   become: true
+#   tags:
+#     - ubuntu
   
-- name: "Install Slack"
-  aur:
-    name: slack-desktop
-    user: "{{ansible_user}}"
-  tags:
-    - artengos
+# - name: "Install Slack"
+#   aur:
+#     name: slack-desktop
+#     user: "{{ansible_user}}"
+#   tags:
+#     - artengos
+
+- name: "Add scudcloud repository"
+  apt_repository:
+    repo: ppa:rael-gc/scudcloud
+    state: present
+  become: true
+
+- name: "Install mscorefont"
+  shell: "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections"
+  become: true
+
+- name: "Install scudcloud"
+  apt:
+    name: scudcloud
+    update_cache: yes
+    state: present
+  become: true

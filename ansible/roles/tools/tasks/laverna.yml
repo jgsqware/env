@@ -1,0 +1,33 @@
+- name: "Create laverna folder"
+  file: 
+    path: /usr/local/laverna
+    owner: "{{ansible_user}}"
+    group: "users"
+    state: directory
+  become: true
+  tags:
+    - ubuntu
+    - artengos
+
+- name: "Install Laverna"
+  unarchive:
+    src: "https://github.com/Laverna/laverna/releases/download/{{laverna_version}}/laverna-{{laverna_version}}-linux-x64.zip"
+    dest: /usr/local/laverna
+    owner: "{{ansible_user}}"
+    group: "users"
+    remote_src: True
+  become: true
+  tags:
+    - ubuntu
+
+
+- name: "set laverna Symbolic link"
+  file:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+    state: link
+  with_items:
+    - { src: '/usr/local/laverna/laverna', dest: '/usr/local/bin/laverna' }
+  become: true
+  tags:
+    - ubuntu

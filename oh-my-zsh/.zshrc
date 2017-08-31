@@ -1,4 +1,21 @@
 export ZSH=~/.oh-my-zsh
+function powerline_precmd() {
+	PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
+}
+
+function install_powerline_precmd() {
+	for s in "${precmd_functions[@]}"; do
+		if [ "$s" = "powerline_precmd"  ]; then
+			return
+		fi
+	done
+	precmd_functions+=(powerline_precmd)
+}
+
+#if [ "$TERM" != "linux"  ]; then
+#	install_powerline_precmd
+#fi
+
 ZSH_THEME="spaceship"
 SPACESHIP_DOCKER_SHOW=false
 plugins=(git docker docker-compose go vagrant ansible kubectl)
@@ -41,3 +58,5 @@ export CDPATH=".:$WORKSPACE:$GOPATH/src"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 source <(kubectl completion zsh)
+export GPG_TTY=$(tty)
+source ~/.profile
