@@ -1,4 +1,4 @@
-name: "Install Slack"
+- name: "Install Slack"
   apt:
     name: slack-desktop
     state: present
