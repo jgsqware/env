@@ -30,7 +30,7 @@ export PATH="$PATH/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
 
 export WORKSPACE=$HOME/workspace
 export GOPATH=$WORKSPACE/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$HOME/.cargo/bin
 export ENV=$WORKSPACE/github/jgsqware/env
 
 export LESS=' -R '
@@ -60,3 +60,4 @@ export NVM_DIR="$HOME/.nvm"
 source <(kubectl completion zsh)
 export GPG_TTY=$(tty)
 source ~/.profile
+export LC_ALL="en_US.UTF-8"

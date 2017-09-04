@@ -39,7 +39,7 @@
   roles:
     - role: oh-my-zsh
     - role: tools
-    - role: kde
+    # - role: kde
     - role: laptop-setup
   post_tasks:
     - debug: 
