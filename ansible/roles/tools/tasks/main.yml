@@ -9,6 +9,7 @@
     - "curl"
     - "fonts-firacode"
     - "mkchromecast"
+    - "fonts-hack-ttf"
   become: true
   tags:
     - ubuntu
@@ -34,3 +35,5 @@
 - include: "keybase.yml"
 - include: "laverna.yml"
 - include: "mkchromecast.yml"
+- include: "keypassxc.yml"
+

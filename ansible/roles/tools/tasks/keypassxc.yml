@@ -1,0 +1,6 @@
+
+- name: "Install keepassxc"
+  command: "snap install keepassxc"
+  become: true
+  tags:
+    - ubuntu

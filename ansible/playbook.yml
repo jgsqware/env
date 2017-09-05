@@ -19,6 +19,7 @@
       tags:
         - ubuntu
         - artengos
+        - now
 
     - name: get product name
       command: "dmidecode -s system-product-name"
@@ -27,6 +28,7 @@
       tags:
         - ubuntu
         - artengos
+        - now
 
     - name: Save facts
       set_fact:
@@ -35,11 +37,13 @@
       tags:
         - ubuntu
         - artengos
+        - now
 
   roles:
     - role: oh-my-zsh
     - role: tools
     # - role: kde
+    - role: gnome
     - role: laptop-setup
   post_tasks:
     - debug: 
@@ -57,4 +61,6 @@
           - "   - theme"
           - "   - docker"
       tags:
-        - always
+        - ubuntu
+        - artengos
+        - now

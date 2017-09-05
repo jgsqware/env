@@ -81,7 +81,16 @@
   with_items:
     - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/spaceship.zsh-theme', dest: '${HOME}/.oh-my-zsh/themes/spaceship.zsh-theme' }
     - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/functions', dest: '${HOME}/.oh-my-zsh/functions' }
+    - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/base16-chalk.dark.sh', dest: '~/.oh-my-zsh/base16-chalk.dark.sh' }
     - { src: '${HOME}/workspace/github/jgsqware/env/oh-my-zsh/.zshrc', dest: '~/.zshrc' }
+
   tags:
-    - always
+    - ubuntu
+    - artengos
+
+- name: "Install Base16 Chalk profile"
+  script: "${HOME}/workspace/github/jgsqware/env/oh-my-zsh/base16-chalk.dark.sh"
+  tags:
+    - ubuntu
+    - artengos
 

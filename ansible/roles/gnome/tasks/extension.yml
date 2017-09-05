@@ -1,0 +1,23 @@
+- name: "Create extension folder"
+  file:
+    path: ~/.local/share/gnome-shell/extensions/
+    state: directory
+  tags:
+    - ubuntu
+
+- name: "Install Extensions"
+  unarchive:
+    src: "{{role_path}}/files/{{item}}.tar.gz"
+    dest: ~/.local/share/gnome-shell/extensions/
+  with_items:
+    - "{{extensions}}"
+  tags:
+    - ubuntu
+
+- name: "Enable Extensions"
+  command: "gsettings set org.gnome.shell enabled-extensions \"['{{item}}']\""
+  with_items:
+    - "{{extensions}}"
+  tags:
+    - ubuntu
+

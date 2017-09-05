@@ -1,0 +1,6 @@
+- name: "Disable Alt-Click"
+  command: "dconf write /org/gnome/desktop/wm/preferences/mouse-button-modifier  '\"<Super>\"'"
+  tags:
+    - ubuntu
+
+- include: "extension.yml"

@@ -19,7 +19,7 @@ alias dkc="docker-compose"
 # Applications
 alias mvn7='docker run --rm -v ~/.m2:/root/.m2 -v $(pwd):/src -v /dev/urandom:/dev/random -w /src -e "MAVEN_OPTS= -XX:+TieredCompilation -XX:TieredStopAtLevel=1" -t maven:3-jdk-7 mvn'
 alias mvn8='docker run --rm -v ~/.m2:/root/.m2 -v $(pwd):/src -v /dev/urandom:/dev/random -w /src -e "MAVEN_OPTS= -XX:+TieredCompilation -XX:TieredStopAtLevel=1" -t maven:3-jdk-8 mvn'
-alias stream='mkchromecast --encoder-backend ffmpeg --alsa-device hw:0,1 --name Bureau -b 320'
+alias stream='mkchromecast --encoder-backend ffmpeg --alsa-device hw:1,1 --name Bureau -b 320'
 
 # Go
 alias playground="code $GOPATH/src/github.com/jgsqware/playground"
